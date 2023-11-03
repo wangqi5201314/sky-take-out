@@ -110,5 +110,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeMapper.update(employee);
     }
 
+    @Override
+    public Employee getById(Long id) {
+        Employee employee=employeeMapper.selectById(id);
+        employee.setPassword("********");
+        return employee;
+    }
+
 
 }
