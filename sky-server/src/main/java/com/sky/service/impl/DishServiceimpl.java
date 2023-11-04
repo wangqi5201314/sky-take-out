@@ -87,4 +87,14 @@ public class DishServiceimpl implements DishService {
             dishFlavorMapper.deleteByDishId(id);//后绪步骤实现
         }
     }
+
+    @Override
+    public DishVO getById(Long id) {
+        Dish dish = dishMapper.getById(id);
+        List<DishFlavor> list=dishFlavorMapper.getByDishId(id);
+        DishVO dishVO=new DishVO();
+        BeanUtils.copyProperties(dish,dishVO);
+        dishVO.setFlavors(list);
+        return dishVO;
+    }
 }
