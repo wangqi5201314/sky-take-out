@@ -26,4 +26,7 @@ public interface SetmealDishMapper {
     void addSetmealDish(SetmealDish setmealDish);
 
     void insertBatch(List<SetmealDish> setmealDishes);
+
+    @Delete("delete from setmeal_dish where setmeal_id=#{id}")
+    void deleteById(Long id);
 }
