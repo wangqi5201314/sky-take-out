@@ -96,6 +96,19 @@ public class DishController {
     }
 
     /**
+     * 菜品启售停售状态设置
+     * @param id 菜品id
+     * @param status 售卖状态
+     */
+    @PostMapping("/status/{status}")
+    public Result dishSalesStatusSettings(Long id,
+                                                  @PathVariable Integer status){
+        log.info("菜品id{},售卖状态,{}",id,status);
+        dishService.setSale(id,status);
+        return Result.success();
+    }
+
+    /**
      * 清理全部缓存
      * @param pattern
      */

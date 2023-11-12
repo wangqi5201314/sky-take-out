@@ -152,4 +152,9 @@ public class DishServiceimpl implements DishService {
 
         return dishVOList;
     }
+
+    @Override
+    public void setSale(Long id, Integer status) {
+        dishMapper.setSale(id, status);
+    }
 }
