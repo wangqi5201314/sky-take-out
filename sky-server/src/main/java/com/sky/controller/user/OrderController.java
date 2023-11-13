@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 订单
  */
@@ -78,5 +80,11 @@ public class OrderController {
     public Result reminder(@PathVariable("id") Long id) {
         orderService.reminder(id);
         return Result.success();
+    }
+
+    @GetMapping("/orderDetail/{id}")
+    public Result<OrderVO> getOrderDetails(@PathVariable("id") Long id){
+        OrderVO orderVO=orderService.getOrderDetails(id);
+        return Result.success(orderVO);
     }
 }
