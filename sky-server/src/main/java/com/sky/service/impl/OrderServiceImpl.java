@@ -325,4 +325,14 @@ public class OrderServiceImpl implements OrderService {
         orderStatisticsVO.setDeliveryInProgress(deliveryInProgress);
         return orderStatisticsVO;
     }
+
+    @Override
+    public OrderVO details(Long id) {
+        Orders orders = orderMapper.getById(id);
+        OrderVO orderVO = new OrderVO();
+        BeanUtils.copyProperties(orders,orderVO);
+        List<OrderDetail> details = orderDetailMapper.getByOrderId(id);
+        orderVO.setOrderDetailList(details);
+        return orderVO;
+    }
 }

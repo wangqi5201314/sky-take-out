@@ -50,4 +50,6 @@ public interface OrderService {
      * @return
      */
     OrderStatisticsVO statistics();
+
+    OrderVO details(Long id);
 }
