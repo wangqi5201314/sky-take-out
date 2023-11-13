@@ -38,4 +38,10 @@ public interface OrderService {
     PageResult pageQuery4User(int page, int pageSize, Integer status);
 
     OrderVO getOrderDetails(Long id);
+    /**
+     * 条件搜索订单
+     * @param ordersPageQueryDTO
+     * @return
+     */
+    PageResult conditionSearch(OrdersPageQueryDTO ordersPageQueryDTO);
 }
