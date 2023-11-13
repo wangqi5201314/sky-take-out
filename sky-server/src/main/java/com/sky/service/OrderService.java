@@ -52,4 +52,10 @@ public interface OrderService {
     OrderStatisticsVO statistics();
 
     OrderVO details(Long id);
+    /**
+     * 接单
+     *
+     * @param ordersConfirmDTO
+     */
+    void confirm(OrdersConfirmDTO ordersConfirmDTO);
 }
